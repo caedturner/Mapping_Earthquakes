@@ -39,9 +39,13 @@ let airportData = "https://raw.githubusercontent.com/caedturner/Mapping_Earthqua
 // Grabbing the GeoJSON data.
 d3.json(airportData).then(function(data) {
   console.log(data);
+
   //Createing a GeoJSON layer with the retrieved data.
-  L.geoJson(data)
-  .addTo(map);
+  L.geoJson(data, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup("<h2> Airport Code: " + feature.properties.faa + "</h2> <hr> <h3> Airport Name: " + feature.properties.name + "</h3>");
+    }
+  }).addTo(map);
 });
 // Then we add our 'graymap' tile layer to the map
 streets.addTo(map);
