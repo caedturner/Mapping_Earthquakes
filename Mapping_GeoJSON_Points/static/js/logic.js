@@ -24,7 +24,7 @@ let sanFranAirport =
             "type":"Point",
             "coordinates":[-122.375,37.61899948120117]}}
 ]};
-
+// okay
 // Grabbing GeoJSON data.
 L.geoJSON(sanFranAirport).addTo(map);
 
